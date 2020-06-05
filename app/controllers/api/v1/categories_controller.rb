@@ -3,7 +3,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = Category.paginate(page: params[:page][:number].to_i)
 
     render json: @categories
   end
@@ -46,6 +46,6 @@ class Api::V1::CategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def category_params
-      params.require(:category).permit(:title, :description)
+      params.require(:category).permit(:title, :description, :page)
     end
 end

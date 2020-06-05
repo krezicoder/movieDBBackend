@@ -11,7 +11,9 @@
 require 'faker'
 
 100.times do |i|
+  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "Password123")
+end
 
+100.times do |i|
   category = Category.create!(:title => Faker::Creature::Animal.name, :description => Faker::Lorem.sentence)
-
 end
