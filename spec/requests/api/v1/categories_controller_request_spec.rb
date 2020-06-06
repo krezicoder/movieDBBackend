@@ -49,7 +49,18 @@ RSpec.describe "Api::V1::CategoriesController", type: :request do
   end
 
 
-  describe "delete api/v1/categories" do
+  describe "delete api/v1/categories/:id" do
+    let(:category) {create(:category)}
+
+    it "should delete category" do
+      category
+
+      expect(Category.all().count).to eq(1)
+
+      delete api_v1_category_path(category)
+
+      expect(Category.all().count).to eq(0)
+    end
 
 
   end
