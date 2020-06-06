@@ -1,1 +1,7 @@
 --require spec_helper
+--color
+--require rspec/instafail
+--format RSpec::Instafail
+--format documentation
+--format progress
+#--warnings

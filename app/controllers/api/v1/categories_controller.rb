@@ -3,7 +3,9 @@ class Api::V1::CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.paginate(page: params[:page][:number].to_i)
+    page_number = (params[:page] == nil ? 1 : params[:page][:number])
+    page_size = (params[:page] == nil ? 10 : params[:page][:size])
+    @categories = Category.paginate(page: page_number, per_page: page_size)
 
     render json: @categories
   end
@@ -46,6 +48,6 @@ class Api::V1::CategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def category_params
-      params.require(:category).permit(:title, :description, :page)
+      params.require(:category).permit(:title, :description)
     end
 end
