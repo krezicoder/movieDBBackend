@@ -3,6 +3,7 @@
 # Table name: ratings
 #
 #  id         :bigint           not null, primary key
+#  rating     :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  movie_id   :bigint           not null

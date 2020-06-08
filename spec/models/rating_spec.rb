@@ -3,6 +3,7 @@
 # Table name: ratings
 #
 #  id         :bigint           not null, primary key
+#  rating     :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  movie_id   :bigint           not null
@@ -24,7 +25,6 @@ RSpec.describe Rating, type: :model do
   context "validate associations" do
     it {should belong_to(:user).optional}
     it {should belong_to(:movie)}
-    
   end
 
   context "validate attributes" do
@@ -49,6 +49,10 @@ RSpec.describe Rating, type: :model do
       rating.user_id = nil
       expect(rating).to be_valid
     end
+
+    it {should validate_presence_of(:rating_value)}
+    it {should validate_numericality_of(:rating_value).is_less_than_or_equal_to(5)}
+    it {should validate_numericality_of(:rating_value).is_greater_than_or_equal_to(0)}
 
   end
 end
