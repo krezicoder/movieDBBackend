@@ -54,11 +54,8 @@ RSpec.describe "Api::V1::CategoriesController", type: :request do
 
     it "should delete category" do
       category
-
       expect(Category.all().count).to eq(1)
-
       delete api_v1_category_path(category)
-
       expect(Category.all().count).to eq(0)
     end
 

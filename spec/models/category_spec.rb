@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id          :bigint           not null, primary key
+#  description :string
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
@@ -14,5 +24,10 @@ RSpec.describe Category, type: :model do
         category.description = nil
         expect(category.save).to eq(false)
       end
+    end
+
+    context "associations" do
+      it { should have_many(:movies)}
+
     end
 end

@@ -16,4 +16,10 @@ end
 
 100.times do |i|
   category = Category.create!(:title => Faker::Creature::Animal.name, :description => Faker::Lorem.sentence)
+  movie = Movie.new(:title => Faker::Movie.name, :description => Faker::Lorem.sentence)
+  movie.category = category
+  movie.user_id = i + 1
+  movie.save
 end
+
+
