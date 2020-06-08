@@ -27,4 +27,9 @@ class Movie < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :ratings
+
+  def avg_rating
+    avg = self.ratings.average(:rating_value)
+    avg ? avg.round(1) : 0
+  end
 end

@@ -9,6 +9,7 @@
 #  updated_at  :datetime         not null
 #
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id, :title, :description
+  attributes :id, :title, :description, :movies_count
   has_many :movies
+
 end

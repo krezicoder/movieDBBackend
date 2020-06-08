@@ -3,10 +3,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    page_number = (params[:page] == nil ? 1 : params[:page][:number])
-    page_size = (params[:page] == nil ? 10 : params[:page][:size])
-    @categories = Category.paginate(page: page_number, per_page: page_size)
-
+    @categories = Category.all
     render json: @categories
   end
 

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'login' => 'authentication#authenticate_user'
       post 'sign_up' => 'authentication#sign_up'
       get 'users/me' => 'users#logged_in_user'
+      get 'users/:id' => 'users#show'
       resources :categories
       resources :movies
       resources :ratings

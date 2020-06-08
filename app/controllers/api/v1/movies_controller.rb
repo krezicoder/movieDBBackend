@@ -3,9 +3,14 @@ class Api::V1::MoviesController < ApplicationController
 
   # GET /movies
   def index
-    page_number = (params[:page] == nil ? 1 : params[:page][:number])
-    page_size = (params[:page] == nil ? 10 : params[:page][:size])
-    @movies = Movie.paginate(page: page_number, per_page: page_size)
+    page_number = (params[:page] == nil ? 1 : params[:page])
+    page_size = (params[:page_size] == nil ? 10 : params[:page_size])
+    category = (params[:category] != nil ? Category.find_by_title(params[:category]) : nil )
+    if category
+      @movies = Movie.where(:category_id => category.id).paginate(page: page_number, per_page: page_size)
+    else
+      @movies = Movie.paginate(page: page_number, per_page: page_size)
+    end
 
     render json: @movies
   end

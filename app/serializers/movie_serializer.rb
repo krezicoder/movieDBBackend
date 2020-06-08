@@ -21,7 +21,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class MovieSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description
+  attributes :id, :title, :description, :avg_rating
   has_one :category
   has_one :user
+  has_many :ratings
 end

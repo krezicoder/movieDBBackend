@@ -12,4 +12,8 @@ class Category < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   has_many :movies
+
+  def movies_count
+    self.movies.count
+  end
 end

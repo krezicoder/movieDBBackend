@@ -20,7 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class RatingSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :rating_value
   has_one :movie
   has_one :user
 end
