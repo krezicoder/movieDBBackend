@@ -10,6 +10,8 @@
 # Create categories
 require 'faker'
 
+user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "ravitest@gmail.com", password: "Password123")
+
 100.times do |i|
   user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "Password123")
 end

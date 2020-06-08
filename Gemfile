@@ -20,7 +20,7 @@ gem 'active_model_serializers', '~> 0.10.10'
 
 # Devise for auth
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'devise-jwt', '~> 0.6.0'
+gem 'jwt'
 gem 'will_paginate', '~> 3.3'
 
 # Use Active Storage variant

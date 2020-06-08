@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :categories
       resources :movies
       resources :ratings
+      post 'login' => 'authentication#authenticate_user'
+      post 'sign_up' => 'authentication#sign_up'
     end
   end
 end
