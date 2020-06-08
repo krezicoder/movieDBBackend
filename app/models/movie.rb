@@ -21,9 +21,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Movie < ApplicationRecord
-  belongs_to :category
-  belongs_to :user
-
   validates :title, presence: true
   validates :description, presence: true
+
+  belongs_to :category
+  belongs_to :user
+  has_many :ratings
 end

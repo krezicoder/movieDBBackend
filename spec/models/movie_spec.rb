@@ -8,7 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :bigint           not null
-#  user_id     :bigint
+#  user_id     :bigint           not null
 #
 # Indexes
 #
@@ -32,6 +32,8 @@ RSpec.describe Movie, type: :model do
     it "should belong to category" do
       should belong_to(:category)
     end
+
+    it {should have_many(:ratings)}
 
   end
 

@@ -52,6 +52,7 @@ end
 
 group :test do
   gem 'factory_bot_rails'
+  gem 'shoulda'
   gem 'shoulda-matchers'
   gem 'rspec-instafail'
   gem 'simplecov', require: false

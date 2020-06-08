@@ -61,5 +61,6 @@ RSpec.describe User, type: :model do
 
   context "model associations" do
     it {should have_many(:movies)}
+    it {should have_many(:ratings)}
   end
 end
