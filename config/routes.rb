@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post 'login' => 'authentication#authenticate_user'
+      post 'sign_up' => 'authentication#sign_up'
+      get 'users/me' => 'users#logged_in_user'
       resources :categories
       resources :movies
       resources :ratings
-      post 'login' => 'authentication#authenticate_user'
-      post 'sign_up' => 'authentication#sign_up'
     end
   end
 end

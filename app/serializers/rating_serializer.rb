@@ -2,12 +2,12 @@
 #
 # Table name: ratings
 #
-#  id         :bigint           not null, primary key
-#  rating     :float
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  movie_id   :bigint           not null
-#  user_id    :bigint
+#  id           :bigint           not null, primary key
+#  rating_value :float
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  movie_id     :bigint           not null
+#  user_id      :bigint
 #
 # Indexes
 #
